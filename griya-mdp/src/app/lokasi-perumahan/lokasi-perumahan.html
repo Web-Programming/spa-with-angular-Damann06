@@ -1,21 +1,17 @@
 <div class="card h-100 shadow-sm border-0 overflow-hidden">
   <!-- Property Image -->
   <div class="position-relative">
-    <img
-      [src]="housing.image"
-      class="card-img-top"
-      [alt]="housing.title"
-      style="height: 250px; object-fit: cover"
-    />
+    <img [src]="housing.image" 
+         class="card-img-top" 
+         [alt]="housing.title"
+         style="height: 250px; object-fit: cover;">
     <!-- Badge -->
-    <span
-      class="position-absolute top-0 start-0 m-3 badge"
-      [ngClass]="{
-        'bg-success': housing.status === 'Available',
-        'bg-warning': housing.status === 'Pending',
-        'bg-secondary': housing.status === 'Sold'
-      }"
-    >
+    <span class="position-absolute top-0 start-0 m-3 badge"
+          [ngClass]="{
+            'bg-success': housing.status === 'Available',
+            'bg-warning': housing.status === 'Pending',
+            'bg-secondary': housing.status === 'Sold'
+          }">
       <i class="bi bi-check-circle-fill me-1"></i>{{ housing.status }}
     </span>
     <!-- Favorite Button -->
@@ -40,22 +36,27 @@
 
     <!-- Property Features -->
     <div class="d-flex gap-3 mb-3 text-muted">
-      <small> <i class="bi bi-house-door me-1"></i>{{ housing.bedrooms }} Kamar </small>
-      <small> <i class="bi bi-droplet me-1"></i>{{ housing.bathrooms }} K. Mandi </small>
-      <small> <i class="bi bi-rulers me-1"></i>{{ housing.area }} m² </small>
+      <small>
+        <i class="bi bi-house-door me-1"></i>{{ housing.bedrooms }} Kamar
+      </small>
+      <small>
+        <i class="bi bi-droplet me-1"></i>{{ housing.bathrooms }} K. Mandi
+      </small>
+      <small>
+        <i class="bi bi-rulers me-1"></i>{{ housing.area }} m²
+      </small>
     </div>
 
     <!-- Description -->
     <p class="card-text text-muted small mb-3">
-      {{
-        housing.description ||
-          'Hunian modern dengan desain minimalis, dilengkapi fasilitas lengkap dan akses mudah ke berbagai tempat strategis.'
-      }}
+      {{ housing.description || 'Hunian modern dengan desain minimalis, dilengkapi fasilitas lengkap dan akses mudah ke berbagai tempat strategis.' }}
     </p>
 
     <!-- Action Buttons -->
     <div class="d-grid gap-2">
-      <a href="#" class="btn btn-primary"> <i class="bi bi-eye me-2"></i>Lihat Detail </a>
+      <a [routerLink]="['/property', housing.id]" class="btn btn-primary">
+        <i class="bi bi-eye me-2"></i>Lihat Detail
+      </a>
       <a href="#" class="btn btn-outline-primary">
         <i class="bi bi-telephone me-2"></i>Hubungi Sales
       </a>
